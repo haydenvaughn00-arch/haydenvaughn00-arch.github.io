@@ -1,0 +1,169 @@
+/* 1. CSS Variables for Neutral Palette and Typography */
+:root {
+  --color-bg: #f5f5f5;
+  --color-light: #ffffff;
+  --color-mid: #e0e0e0;
+  --color-grey: #9e9e9e;
+  --color-dark: #424242;
+  --color-black: #212121;
+  --color-accent: #607d8b;
+  --font-sans: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+}
+
+/* 2. Global Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-sans);
+  line-height: var(--line-height-base);
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  min-height: 100vh;
+}
+
+/* 3. Typography */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-black);
+  margin-bottom: 0.5em;
+}
+h1 { font-size: 2rem; }
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 2px solid var(--color-mid);
+  padding-bottom: 0.25em;
+  margin-top: 1.5em;
+}
+h3 { font-size: 1.25rem; margin-top: 1em; }
+
+/* 4. Links and Buttons */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+a:hover { color: var(--color-black); }
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* 5. Header & Navigation */
+header {
+  background-color: var(--color-light);
+  border-bottom: 1px solid var(--color-mid);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a { font-weight: 500; }
+
+/* 6. Main Content Sections */
+main {
+  width: 90%;
+  max-width: 960px;
+  /* THIS IS THE CORRECTED LINE */
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+section { margin-bottom: 2rem; }
+.no-bullets { list-style: none; padding-left: 0; }
+.no-bullets li { margin-bottom: 0.5em; }
+
+/* 7. Projects Grid */
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 1rem;
+}
+.project-card {
+  background-color: var(--color-light);
+  border: 1px solid var(--color-mid);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.project-card-content { padding: 0.75rem 1rem 1rem; }
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+}
+.project-card p {
+  margin-bottom: 1rem;
+  color: var(--color-grey);
+  font-size: 0.95rem;
+}
+.tech-stack {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 0 !important;
+}
+.project-card h3 a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* 8. Footer */
+footer {
+  background-color: var(--color-light);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--color-mid);
+  margin-top: 2rem;
+}
+footer p {
+  color: var(--color-grey);
+  font-size: 0.9rem;
+}
+
+/* 9. Responsive Design */
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  header h1 { font-size: 1.5rem; }
+  nav ul { gap: 1rem; }
+}
